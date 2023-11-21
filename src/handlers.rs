@@ -62,7 +62,7 @@ pub async fn create_quote(
 pub async fn read_quotes(
     extract::State(pool): extract::State<PgPool>,
 ) -> Result<axum::Json<Vec<Quote>>, http::StatusCode> {
-    let res = sql::query_as::<_, Quote>("SELECT * FROM quotes")
+    let res = sqlx::query_as::<_, Quote>("SELECT * FROM quotes")
         .fetch_all(&pool)
         .await;
     match res {

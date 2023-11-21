@@ -30,7 +30,7 @@ pub struct CreateQuote{
     quote:String,
 }
 
-pub sync fn health() -> http::StatusCode {
+pub async fn health() -> http::StatusCode {
     http::StatusCode::OK
  }
  

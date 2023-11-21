@@ -1,5 +1,4 @@
 mod handlers;
-use axum::http;
 use axum::routing::{ get,post, Router };
 use sqlx::postgres::PgPoolOptions;
 use std::env;

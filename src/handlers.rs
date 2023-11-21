@@ -1,6 +1,6 @@
 use axum::{extract,http};
 use serde::{Serialize, Deserialize};
-use sqlx::PgPool;
+use sqlx::{FromRow,PgPool};
 
 #[derive(Serialize, FromRow)]
 pub struct Quote{

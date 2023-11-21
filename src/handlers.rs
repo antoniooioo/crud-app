@@ -36,7 +36,8 @@ pub async fn health() -> http::StatusCode {
  
 pub async fn create_quote(
     extract::State(pool): extract::State<PgPool>,
-    axum::Json(payload): axum::Json<CreateQuote>,)->Result<(http::StatusCode, axum::Json<Quote>),http::StatusCode{
+    axum::Json(payload): axum::Json<CreateQuote>,
+)->Result<(http::StatusCode, axum::Json<Quote>),http::StatusCode>{
         let quote = Quote::new(payload.book, payload.quote);
         let res = sqlx::query{
             r#"
